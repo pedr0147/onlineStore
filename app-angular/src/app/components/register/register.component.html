@@ -1,0 +1,42 @@
+<div>
+  <p-menubar>
+    <a style="padding-right: 900px" routerLink="/product"><h1>ShopCenter</h1></a>
+  </p-menubar>
+  <p></p>
+  <p-button [ngStyle]="{'margin-left':'50px'}" routerLink="" icon="pi pi-angle-left"></p-button>
+
+  <p></p>
+</div>
+
+<div>
+  <form class="main" [formGroup]="form" (submit)="createUser()">
+  <p>
+    <label class="name">Name</label>
+    <input class="inname" pInputText type="text" formControlName="name" name="name">
+    <label class="age">Age</label>
+    <input class="inage" pInputText type="number" formControlName="age" name="age">
+    <br>
+    <br>
+    <label class="gender">Gender</label>
+    <input class="ingender" pInputText type="text"formControlName="gender" name="gender">
+    <label class="address">Address</label>
+    <input class="inaddress" pInputText type="text" formControlName="address" name="address">
+    <br>
+    <br>
+    <label class="nif">NIF</label>
+    <input class="innif" pInputText type="number" formControlName="nif" name="nif">
+    <label class="phone">Phone</label>
+    <input class="inphone" pInputText type="number" formControlName="phone" name="phone">
+    <br>
+    <br>
+    <label class="email">Email</label>
+    <input class="inemail" pInputText type="text" formControlName="username" name="username">
+    <label class="password">Password</label>
+    <input class="inpassword" pInputText type="password" formControlName="password" name="password">
+    <br>
+    <br>
+    <br>
+    <p-button label="Create Account" (onClick)="createUser()"></p-button>
+  </p>
+  </form>
+</div>

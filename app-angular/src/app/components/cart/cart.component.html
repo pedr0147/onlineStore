@@ -1,0 +1,65 @@
+<!--<ul>
+  <li *ngFor="let product of cartService.products">
+  {{product.productName}}
+  </li>
+</ul>-->
+
+
+  <p-menubar>
+    <a style="padding-right: 750px" routerLink="/product"><h1>ShopCenter</h1></a>
+      <p-button [ngStyle]="{'margin-right':'50px'}" label="Cart" icon="pi pi-shopping-cart" badge="{{(cartService.products | async)?.length}}"></p-button>
+  </p-menubar>
+<p></p>
+    <p-button [ngStyle]="{'margin-left':'50px'}" routerLink="/product" icon="pi pi-angle-left"></p-button>
+<p></p>
+
+
+
+
+<p-table [value]="(cartService.products | async) || []">
+  <ng-template pTemplate="caption">
+      Cart
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th> </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{product.id}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.productCategorie}}</td>
+      <td>{{product.productDescription}}</td>
+      <td>{{product.productPrice | currency:'EUR'}}</td>
+      <td>{{product.status}}</td>
+      <td><p-button label="Remove" (onClick)="remove(product)"></p-button></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <p>
+    <hr>
+    <div class="p-d-flex p-ai-center p-jc-between" [ngStyle]="{'margin-left':'750px'}">
+      <p>
+      In total there are {{(cartService.products | async)?.length || 0 }} products.
+      </p>
+    </div>
+    <hr>
+    <div [ngStyle]="{'margin-left':'780px'}" class="p-d-flex p-ai-center p-jc-between">
+      <p>
+      Total to pay: {{ cartService.cartTotal | currency:'EUR'}}
+      </p>
+    </div>
+    <div [ngStyle]="{'margin-left':'805px'}">
+      <p>
+        <p-button label="Payment" routerLink="/payment"></p-button>
+      </p>
+    </div>
+  </ng-template>
+</p-table>

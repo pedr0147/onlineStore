@@ -1,0 +1,53 @@
+<p-menubar>
+  <a style="padding-right: 900px" routerLink="/product"><h1>ShopCenter</h1></a>
+</p-menubar>
+<p></p>
+<p-button [ngStyle]="{'margin-left':'50px'}" routerLink="/admin" icon="pi pi-angle-left"></p-button>
+<!--<p-button [ngStyle]="{'margin-left':'1360px'}" label="Save Changes" icon="pi pi-save" (onClick)="updateProducts()"></p-button>-->
+<p></p>
+
+
+<p-table [value]="productsForm.controls">
+  <ng-template pTemplate="caption">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      Products
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Status</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr  [formGroup]="product">
+      <td >
+        {{product.get('id').value}}
+      </td>
+      <td >
+            <input type="text"  [formControl]="product.get('name')">
+      </td>
+      <td>
+        {{product.get('category').value}}
+      </td>
+      <td >
+            <input type="text"  [formControl]="product.get('description')">
+      </td>
+      <td >
+            <input type="text"  [formControl]="product.get('price')">
+      </td>
+      <td><span [class]="'product-badge status-' + product.get('status').value">{{product.get('status').value}}</span></td>
+      <td><p-button label="Remove" (onClick)="remove(product)"></p-button></td>
+      <td><p-button label="Save Changes" icon="pi pi-save" (onClick)="updateProducts(product)"></p-button></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      In total there are {{products ? products.length : 0 }} products.
+    </div>
+  </ng-template>
+</p-table>

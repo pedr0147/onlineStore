@@ -1,0 +1,18 @@
+<div class="header">
+<p-menubar>
+  <a style="padding-right: 900px"><h1>ShopCenter</h1></a>
+</p-menubar>
+</div>
+
+
+
+<form class="main" [formGroup]="form" (submit)="loginUser()">
+  <span class="labels">Username </span>
+  <input class="p-text" type="text" pInputText formControlName="username" name="username"/>
+  <p>
+  <span class="labels">Password </span>
+  <input class="p-password" type="password" pInputText  formControlName="password" name="password"/>
+  <p>
+  <p-button class="login" label="Login" (onClick)="loginUser()"></p-button>
+  <p-button class="register" label="Register" routerLink="/register"></p-button>
+</form>

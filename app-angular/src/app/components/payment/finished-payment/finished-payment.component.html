@@ -1,0 +1,16 @@
+<p-menubar>
+  <a style="padding-right: 1000px" routerLink="/product"><h1>ShopCenter</h1></a>
+</p-menubar>
+<p></p>
+<p-button [ngStyle]="{'margin-left':'50px'}" routerLink="/product" icon="pi pi-angle-left"></p-button>
+<p></p>
+<br>
+<br>
+<p-messages severity="success">
+  <ng-template pTemplate>
+    <div class="p-ml-2">
+      <i class="pi pi-check" style="font-size: 1rem"></i>
+      <label class="label"> <b> Successful Purchase</b> </label>
+    </div>
+  </ng-template>
+</p-messages>
