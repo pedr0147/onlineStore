@@ -26,7 +26,9 @@ export class ProductComponent implements OnInit {
       take(1),
     ).subscribe((products: APIProduct[]) => {
       this.products = products;
+      console.log(this.products);
     });
+
   }
 
   buy(product:APIProduct){

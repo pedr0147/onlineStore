@@ -3,6 +3,7 @@ package com.company.onlinestore.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,15 +11,14 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 @Setter
+@ToString
 @Getter
 @Entity
-
-
 public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false,updatable = false)
+    @Column(name="ID", nullable = false,updatable = false)
     private Long userId;
 
     private String userName;
@@ -30,6 +30,10 @@ public class User implements Serializable {
     private String userEmail;
     private String userPwd;
     private String userRole;
+
+
+//    @OneToMany(mappedBy = "user")
+   // private List<Order> order;
 
 
 

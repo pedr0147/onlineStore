@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -32,6 +33,9 @@ public class Product implements Serializable {
 
     @Column(name = "Status")
     private String status;
+
+  //  @ManyToMany(mappedBy = "product")
+    //private List<Order> order;
 
 
     //------------------------------------------------------

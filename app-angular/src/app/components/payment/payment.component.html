@@ -6,40 +6,10 @@
 <p-button [ngStyle]="{'margin-left':'50px'}" routerLink="/cart" icon="pi pi-angle-left"></p-button>
 <p></p>
 </div>
-
-<p-splitter [style]="{'height': '800px'}" [panelSizes]="[50,50]">
-  <ng-template pTemplate>
-    <div>
-    <p>
-    <label class="textname">Name</label><input class="inputname" type="text" pInputText>
-    </p>
-      <p>
-    <label class="textage">Age</label><input  class="inputage" type="number" pInputText>
-    </p>
-    </div>
-    <div>
-    <p>
-    <label class="textgender">Gender</label><input  class="inputgender" type="text" pInputText>
-    </p>
-      <p>
-    <label class="textaddress">Address</label><input  class="inputaddress" type="text" pInputText>
-    </p>
-    </div>
-    <div>
-    <p>
-    <label class="textnif">NIF</label><input  class="inputnif" type="number" pInputText>
-    </p>
-    <p>
-    <label class="textphone">Phone number</label><input  class="inputphone" type="tel" pInputText>
-    </p>
-    </div>
-  </ng-template>
-  <ng-template pTemplate>
-    <a>Total to pay: {{cartTotal | currency:'EUR'}}</a>
-    <p-button class="finish" label="Finish checkout" routerLink="/finishedpayment"></p-button>
-
-  </ng-template>
-</p-splitter>
+<div>
+    <a [ngStyle]="{'margin-left':'100px'}" >Total to pay: {{cartTotal | currency:'EUR'}}</a>
+    <p-button class="finish" label="Finish checkout" (onClick)="createOrder()" routerLink="/finishedpayment"></p-button>
+</div>
 
 
 

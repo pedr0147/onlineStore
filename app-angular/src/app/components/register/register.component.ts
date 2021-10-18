@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
 
   createUser() {
 
-    this.usersService.createUsers(this.form.get('name')!.value,
+    this.usersService.createUsers(
+      this.form.get('name')!.value,
       this.form.get('age')!.value,
       this.form.get('gender')?.value,
       this.form.get('address')?.value,
@@ -41,7 +42,6 @@ export class RegisterComponent implements OnInit {
         take(1)
     ).subscribe(value => {})
 
-
-
   }
+
 }

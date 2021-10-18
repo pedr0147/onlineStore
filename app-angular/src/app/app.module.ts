@@ -25,8 +25,9 @@ import {SplitterModule} from 'primeng/splitter';
 import { RegisterComponent } from './components/register/register.component';
 import { FinishedPaymentComponent } from './components/payment/finished-payment/finished-payment.component';
 import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-
+import { ListpurchaseproductsComponent } from './components/admin/listpurchaseproducts/listpurchaseproducts.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import {MessageModule} from 'primeng/message';
     ListProductsComponent,
     PaymentComponent,
     RegisterComponent,
-    FinishedPaymentComponent
+    FinishedPaymentComponent,
+    ListpurchaseproductsComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import {MessageModule} from 'primeng/message';
     TableModule,
     ReactiveFormsModule,
     SplitterModule,
+    DialogModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -89,6 +93,14 @@ import {MessageModule} from 'primeng/message';
       {
         path: 'finishedpayment',
         component: FinishedPaymentComponent
+      },
+      {
+        path: 'listpurchaseproducts',
+        component: ListpurchaseproductsComponent
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent
       }
     ]),
     MenubarModule,

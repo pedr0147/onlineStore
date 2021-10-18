@@ -1,6 +1,7 @@
 <div>
   <p-menubar>
-      <a style="padding-right: 700px"  routerLink="/product"><h1>ShopCenter</h1></a>
+      <a style="padding-right: 650px"  routerLink="/product"><h1>ShopCenter</h1></a>
+      <p-button [ngStyle]="{'margin-right':'50px'}" routerLink="/orders" label="Orders" icon="pi pi-inbox"></p-button>
       <p-button [ngStyle]="{'margin-right':'50px'}" routerLink="/cart" label="Cart" icon="pi pi-shopping-cart" badge="{{(cartService.products | async)?.length}}"></p-button>
   </p-menubar>
   <p>
@@ -14,13 +15,13 @@
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th>ID</th>
+      <th> </th>
       <th>Name</th>
       <th>Category</th>
       <th>Description</th>
       <th>Price</th>
       <th>Status</th>
-      <th>Buy</th>
+      <th> </th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-product>
@@ -40,3 +41,4 @@
     </div>
   </ng-template>
 </p-table>
+

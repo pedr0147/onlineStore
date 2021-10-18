@@ -49,7 +49,7 @@ public class UserController {
     //------------------------------------------------------------
     //VALIDAR SE EXISTE
     @PostMapping("exists")
-    public boolean validUser(@RequestBody BasicUser user){
+    public User validUser(@RequestBody BasicUser user){
         LOGGER.info("Checking if user exists");
 
         return userService.userExists(user.username, user.password);

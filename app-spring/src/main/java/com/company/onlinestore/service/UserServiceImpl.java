@@ -3,6 +3,7 @@ package com.company.onlinestore.service;
 
 import com.company.onlinestore.Repository.UserRepository;
 import com.company.onlinestore.entity.User;
+import com.company.onlinestore.models.BasicUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -106,12 +107,12 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public boolean userExists(String username, String password){
+    public User userExists(String username, String password){
         return userRepository
                 .findAll()
                 .stream()
                 .filter(user -> {
-                    return user.getUserEmail().equals(username.trim())&& user.getUserPwd().equals(password.trim());
-                }).count() > 0;
+                    return user.getUserEmail()!=null && user.getUserEmail().equals(username.trim())&& user.getUserPwd().equals(password.trim()) ;
+                }).collect(Collectors.toList()).get(0);
     }
 }
